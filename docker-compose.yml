@@ -3,7 +3,6 @@ version: "3"
 services:
   mysql:
     image: gelodave/skillwise-db
-    container_name: mysql57_server
     volumes:
       - db_data:/var/lib/mysql
     environment:
@@ -16,7 +15,6 @@ services:
     depends_on:
       - mysql
     image: gelodave/skillwise-db-webadmin
-    container_name: phpmyadmin_server
     environment:
       PMA_PORT: 3306
       PMA_HOST: mysql
@@ -27,7 +25,6 @@ services:
     depends_on:
       - mysql
     image: gelodave/skillwise-api
-    container_name: api_server
     volumes:
       - ./api:/var/www/html/
     ports:
@@ -37,7 +34,6 @@ services:
     depends_on:
       - api
     image: gelodave/skillwise-web
-    container_name: app_server
     volumes:
       - ./app:/usr/share/nginx/html/
     ports:
