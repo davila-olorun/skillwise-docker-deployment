@@ -1,0 +1,19 @@
+{
+    "env": {
+        "name": "DEV"
+    },
+    "aad": {
+        "requireAuth": true,
+        "tenant": "6a65c321-1ea6-4940-aaf5-ac8276226439",
+        "clientId": "6cdc1564-e433-410e-9261-3034c367c4c5",
+        "objectId": "4d1c7eb6-6d22-44e5-845f-f608d4f3699e",
+        "secret": "4qhu6oe+TIblFW@v8YQtc@vTPFy1:7Hy",
+        "cacheLocation": "localStorage",
+        "endpoints": {
+            "http://skillwiseapi.oloruntech.com/":"6cdc1564-e433-410e-9261-3034c367c4c5"
+        }
+    },
+    "apiServer": {
+        "url": "http://api.skillwise.dvl/"
+    }
+}

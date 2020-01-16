@@ -1,0 +1,47 @@
+version: "3"
+
+services:
+  mysql:
+    image: gelodave/skillwise-db
+    container_name: mysql57_server
+    volumes:
+      - db_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root@mot2passe
+      MYSQL_DATABASE: skillwisedb
+      MYSQL_USER: skill-user
+      MYSQL_PASSWORD: skill@db-pass
+    restart: always
+  phpmyadmin:
+    depends_on:
+      - mysql
+    image: gelodave/skillwise-db-webadmin
+    container_name: phpmyadmin_server
+    environment:
+      PMA_PORT: 3306
+      PMA_HOST: mysql
+    ports:
+      - "8802:80"
+    restart: always
+  api:
+    depends_on:
+      - mysql
+    image: gelodave/skillwise-api
+    container_name: api_server
+    volumes:
+      - ./api:/var/www/html/
+    ports:
+      - "8801:80"
+    restart: always
+  app:
+    depends_on:
+      - api
+    image: gelodave/skillwise-web
+    container_name: app_server
+    volumes:
+      - ./app:/usr/share/nginx/html/
+    ports:
+      - "8800:80"
+    restart: always
+volumes:
+  db_data: {}
