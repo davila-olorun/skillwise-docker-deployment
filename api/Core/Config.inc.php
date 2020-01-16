@@ -30,7 +30,7 @@ class Config {
             'password' => 'fmV4@f48'
         )*/
         'server' => array(
-            'host' => 'mysql57',
+            'host' => 'mysql',
             'db' => 'skillwisedb',
             'user' => 'skill-user',
             'password' => 'skill@db-pass'
